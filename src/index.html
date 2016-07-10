@@ -4,6 +4,9 @@
     <link rel="stylesheet" type="text/css" href="app/assets/zwift.css"></link>
     <script src="app/lib/angular.js"></script>
     <script src="app/js/app.js"></script>
+    <script src="app/js/stepsService.js"></script>
+    <script src="app/js/xmlGeneratorService.js"></script>
+    <script src="app/js/stepType.js"></script>
 
     <meta charset="UTF-8">
     <title>Zwift Workout Generator</title>
@@ -43,9 +46,11 @@
         </tr>
     </table>
     <br>
-    <input type="button" ng-click="addIncreasingStep()" value="Add Warm Up">
+    <input type="button" ng-click="addWarmUp()" value="Add Warm Up">
+    <input type="button" ng-click="addIncreasingStep()" value="Add Increasing Step">
     <input type="button" ng-click="addSteadyStateStep()" value="Add Steady State">
-    <input type="button" ng-click="addDecreasingStep()" value="Add Cool Down">
+    <input type="button" ng-click="addDecreasingStep()" value="Add Decreasing Step">
+    <input type="button" ng-click="addCoolDown()" value="Add Cool Down">
 
     <br>
     <br>
