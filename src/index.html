@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zwiftWorkoutApp">
+<head>
+    <link rel="stylesheet" type="text/css" href="app/assets/zwift.css"></link>
+    <script src="app/lib/angular.js"></script>
+    <script src="app/js/app.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Zwift Workout Generator</title>
+</head>
+<body ng-controller="appController">
+    <table>
+        <tr>
+            <td style="width: 20%"><label>Author</label></td>
+            <td style="width: 80%"><input type="text" ng-model="workout.author"></td>
+        </tr>
+        <tr>
+            <td><label>Workout Title</label></td>
+            <td><input type="text" ng-model="workout.title"></td>
+        </tr>
+        <tr>
+            <td><label>Description</label></td>
+            <td><textarea rows="10" style="width: 100%" ng-model="workout.description"></textarea></td>
+        </tr>
+    </table>
+
+    <table class="outline">
+        <tr>
+            <th>Duration (seconds)</th>
+            <th>Start Power (FTP %)</th>
+            <th>End Power (FTP %)</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="step in steps">
+            <td><input type="text" ng-model="step.timeSeconds"></td>
+            <td><input type="text" ng-model="step.ftpPercentageStart"></td>
+            <td><input type="text" ng-model="step.ftpPercentageEnd"></td>
+            <td>
+                <input type="button" ng-click="deleteStep($index)" value="X">
+                <input type="button" ng-click="moveUp($index)" value="&uarr;">
+                <input type="button" ng-click="moveDown($index)" value="&darr;">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <input type="button" ng-click="addIncreasingStep()" value="Add Warm Up">
+    <input type="button" ng-click="addSteadyStateStep()" value="Add Steady State">
+    <input type="button" ng-click="addDecreasingStep()" value="Add Cool Down">
+
+    <br>
+    <br>
+    <input type="button" ng-click="generateXmlOutput()" value="Generate XML Output">
+
+    <textarea rows="20" style="width: 100%" ng-model="xml"></textarea>
+</body>
+</html>
